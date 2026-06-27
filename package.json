@@ -1,0 +1,10 @@
+{
+  "name": "smarter-and-watch",
+  "version": "1.0.0",
+  "description": "HanoFine Proximity Smartwatch Dashboard Engine",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static build complete!'"
+  },
+  "dependencies": {}
+}
