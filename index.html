@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmarterAndWatch | HanoFine Platform</title>
+  <style>
+    /* Premium Deep Blue & Neon Light Blue Tech Theme */
+    body {
+      background-color: #060b13; /* Deep space dark blue */
+      color: #f0f4f8;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    h1 {
+      color: #00d2ff; /* Vibrant Light Blue */
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      margin: 0 0 5px 0;
+      text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      color: #6b8296; /* Slate Blue */
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin: 0 0 25px 0;
+    }
+
+    /* High-Tech Blue Buttons */
+    .btn-blue {
+      background: linear-gradient(135deg, #00d2ff 0%, #0066ff 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-blue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 210, 255, 0.6);
+    }
+
+    .btn-small {
+      background: transparent;
+      border: 1px solid #00d2ff;
+      color: #00d2ff;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-small:hover {
+      background: #00d2ff;
+      color: #060b13;
+    }
+
+    /* Clean Dashboard Architecture Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* Individual High-End Data Cards */
+    .card {
+      background: #0d1726; /* Dark slate blue card background */
+      border: 1px solid #1a2f4c;
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #00d2ff; /* Highlights neon light blue on hover */
+      box-shadow: 0 12px 24px rgba(0, 210, 255, 0.2);
+    }
+
+    .card h3 {
+      color: #6b8296;
+      margin: 0 0 12px 0;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .card .status-label {
+      font-size: 0.8rem;
+      color: #4a5d73;
+    }
+
+    .light-blue-highlight {
+      color: #00d2ff !important;
+    }
+
+    /* Custom Controller Inputs Box */
+    .control-box {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    input[type="text"] {
+      background: #142238;
+      border: 1px solid #253e66;
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"]:focus {
+      border-color: #00d2ff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SmarterAndWatch</h1>
+    <p class="subtitle">Also known as <b>HanoFine Engine v1.0</b></p>
+    <!-- Activates the manual Bluetooth picker window -->
+    <button class="btn-blue" onclick="pairNewY68Watch()">Connect System</button>
+  </header>
+
+  <!-- Main System Visualizer -->
+  <div class="dashboard-grid">
+    
+    <!-- 🔋 Battery Level Card -->
+    <div class="card">
+      <h3>Battery Level</h3>
+      <div class="value light-blue-highlight" id="battery-val">--%</div>
+      <div class="status-label">Power Management</div>
+    </div>
+
+    <!-- ❤️ Pulse Sensor Card -->
+    <div class="card">
+      <h3>Heart Rate Monitor</h3>
+      <div class="value" id="heart-val">-- BPM</div>
+      <div class="status-label">Live Green LED Stream</div>
+    </div>
+
+    <!-- 🩸 Oxygen Sensor Card -->
+    <div class="card">
+      <h3>Oxygen Monitor</h3>
+      <div class="value" id="spo2-val">--%</div>
+      <div class="status-label">Blood Oxygen Saturation (SpO2)</div>
+    </div>
+
+    <!-- 🏃 Steps & Streak Tracking Card -->
+    <div class="card">
+      <h3>Steps & Streak</h3>
+      <div class="value light-blue-highlight" id="steps-val">0 Steps</div>
+      <div class="status-label">Daily Tracker Activity</div>
+    </div>
+
+    <!-- 🛏️ Sleep Quality Monitor Card -->
+    <div class="card">
+      <h3>Sleep Monitor</h3>
+      <div class="value" id="sleep-val">-- hrs</div>
+      <div class="status-label">Deep/Light Sleep Evaluation</div>
+    </div>
+
+    <!-- 🎵 Remote Music Utility Controller -->
+    <div class="card">
+      <h3>Music Receiver</h3>
+      <div class="value" id="music-action" style="font-size: 1.3rem; margin: 10px 0;">Idle</div>
+      <div class="status-label">Listening to Watch Buttons...</div>
+    </div>
+
+    <!-- 💬 Message Push Dashboard Command -->
+    <div class="card">
+      <h3>Message System</h3>
+      <div class="control-box">
+        <input type="text" id="msg-input" placeholder="Enter message text...">
+        <button class="btn-small" onclick="pushNotificationToWatch('HanoFine', document.getElementById('msg-input').value)">Send Alert</button>
+      </div>
+    </div>
+
+    <!-- 🔍 Anti-Lost Hardware Locator -->
+    <div class="card">
+      <h3>Find My Watch</h3>
+      <div class="control-box">
+        <button class="btn-blue" style="padding: 10px; font-size: 0.95rem;" onclick="triggerFindMyWatchBuzzer()">Trigger Buzz</button>
+      </div>
+      <div class="status-label" style="margin-top: 8px;">Vibrates Watch Motor</div>
+    </div>
+
+  </div>
+
+  <!-- Your code logic file linked at the absolute bottom -->
+  <script src="sync/app.js"></script>
+</body>
+  </html>
+  
