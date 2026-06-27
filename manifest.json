@@ -1,0 +1,30 @@
+{
+  "name": "SmarterAndWatch HanoFine",
+  "short_name": "HanoFine",
+  "description": "Premium Proximity Smartwatch Dashboard Engine",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#060b13",
+  "theme_color": "#00d2ff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "Icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Icons/maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
